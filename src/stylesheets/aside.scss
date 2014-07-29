@@ -17,6 +17,12 @@ aside{
     display: none;
   }
 
+  .fixed-wrapper {
+    @include respond-to(large-screens) {
+      position: fixed;
+      width: inherit;
+    }
+  }
   section {
     @include show-on-large;
 

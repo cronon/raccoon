@@ -346,6 +346,10 @@ article {
 @media only screen and (max-width: 768px) {
   aside {
     display: none; } }
+@media only screen and (min-width: 1024px) {
+  aside .fixed-wrapper {
+    position: fixed;
+    width: inherit; } }
 @media only screen and (max-width: 768px) {
   aside section {
     display: none; } }
