@@ -1,0 +1,63 @@
+body {
+  color: #777; }
+
+main {
+  margin: 0 auto;
+  width: 100%; }
+  @media only screen and (max-width: 320px) {
+    main {
+      width: 100%; } }
+  @media only screen and (min-width: 321px) and (max-width: 1023px) {
+    main {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    main {
+      max-width: 1024px; } }
+
+article figure {
+  height: 25em;
+  overflow: hidden; }
+article img {
+  width: 100%; }
+article h1 {
+  font-family: "Arial Narrow";
+  font-size: 1.25em; }
+  article h1 > a {
+    text-decoration: none;
+    color: #777; }
+    article h1 > a:visited {
+      color: #ccc; }
+    article h1 > a:hover, article h1 > a:focus {
+      text-decoration: underline; }
+article .article-meta {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 1em 0;
+  font-size: 0.75em; }
+  article .article-meta time {
+    margin-right: 20px; }
+    article .article-meta time::before {
+      content: "";
+      width: 11px;
+      height: 11px;
+      background: transparent url(../img/clock.png) no-repeat;
+      display: inline-block;
+      margin-right: 5px; }
+  article .article-meta a {
+    text-decoration: none;
+    color: #777; }
+    article .article-meta a::before {
+      content: "";
+      width: 8px;
+      height: 15px;
+      background: transparent url(../img/author.png) no-repeat;
+      display: inline-block;
+      margin-right: 5px; }
+    article .article-meta a:visited {
+      color: #ccc; }
+    article .article-meta a:hover, article .article-meta a:focus {
+      text-decoration: underline; }
+    article .article-meta a span {
+      text-decoration: none; }
+article p {
+  font-size: 0.75em; }

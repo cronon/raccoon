@@ -1,0 +1,68 @@
+@import "main.scss";
+$raccoon-face-url: url(../img/raccoon-face.png);
+$author-url: url(../img/author.png);
+$clock-url: url(../img/clock.png);
+
+article {
+  @mixin image-before($width, $height, $url) {
+    &::before{
+      content: "";
+      width: $width;
+      height: $height;
+      background: transparent $url no-repeat;
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  @mixin text-link{
+    text-decoration: none;
+    color: $text-color;
+    &:visited {
+      color: #ccc;
+    }
+    &:hover, &:focus{
+      text-decoration: underline;
+    }
+  }
+
+  figure {
+    height: 25em;
+    overflow: hidden;
+  }
+  img {
+    width: 100%;
+  }
+
+  h1 {
+    font-family: "Arial Narrow";
+    font-size: 1.25em;
+    > a {
+      @include text-link;
+    }
+  }
+
+  .article-meta {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 1em 0;
+    font-size: 0.75em;
+    time {
+      margin-right: 20px;
+      @include image-before(11px, 11px, $clock-url);
+    }
+
+    a {
+      @include image-before(8px, 15px, $author-url);
+      @include text-link;
+      span{
+        text-decoration: none;
+      }
+    }
+
+  }//.arcticle-meta
+
+  p {
+    font-size: 0.75em;
+  }
+} //article

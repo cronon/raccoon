@@ -1,0 +1,10 @@
+.tags{
+  li::after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 0 9px 10px;
+    border-color: transparent transparent transparent #007bff;
+  }
+}

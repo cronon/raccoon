@@ -1,0 +1,54 @@
+@import "main.scss";
+$active-page-url: url(../img/active-page.png);
+$nav-link-hover: #7ca7d9;
+
+.main-nav {
+  background-color: $primary-color;
+  width: 100%;
+  ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+.main-nav-floating {
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 768px){
+  .main-nav {
+    border-bottom: 4px solid #c6defa;
+    margin-bottom: 50px;
+
+    li {
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      &.active::after{
+        position: absolute;
+        content: "";
+        top: calc(100% - 0.125em);
+        left: calc(50% - 11px);
+        background: transparent $active-page-url no-repeat;
+        display: inline-block;
+        width: 22px;
+        height: 14px;
+      }
+    }
+    a{
+      color: white;
+      text-transform: uppercase;
+      font-size: 1.125em;
+      text-decoration: none;
+      padding: 1.125em 33px 1.125em 33px;
+      display: inline-block;
+      &:hover, &:focus {
+        background-color: $nav-link-hover;
+      }
+    }
+  }
+}
