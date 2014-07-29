@@ -1,28 +1,79 @@
 $primary-color: #6b9ad0;
 $text-color: #777;
+$primary-hover: #7ca7d9;
+
+@import "reset.scss";
 
 body {
   color: $text-color;
 }
 
 $screen-small: 320px;
+$screen-medium: 768px;
 $screen-large: 1024px;
 @mixin respond-to($media) {
   @if $media == small-screens {
-    @media only screen and (max-width: $screen-small) { @content; }
+    @media only screen and (max-width: $screen-medium) { @content; }
   }
   @else if $media == medium-screens {
-    @media only screen and (min-width: $screen-small + 1) and (max-width: $screen-large - 1) { @content; }
+    @media only screen and (min-width: $screen-medium) and (max-width: $screen-large - 1) { @content; }
   }
-  @else if $media == wide-screens {
+  @else if $media == large-screens {
     @media only screen and (min-width: $screen-large) { @content; }
   }
 }
 
-main {
-  margin: 0 auto;
-  width: 100%;
-  @include respond-to(small-screens) { width: 100% ;}
+@mixin column-width{
+  @include respond-to(small-screens) { width: 90%; }
   @include respond-to(medium-screens) { max-width: 768px; }
-  @include respond-to(wide-screens) { max-width: $screen-large; }
+  @include respond-to(large-screens) { max-width: $screen-large; }
 }
+
+@mixin show-on-large{
+  @include respond-to(small-screens) { display: none; }
+  @include respond-to(medium-screens) { display: none; }
+}
+
+@mixin show-on-medium{
+  @include respond-to(small-screens) { display: none; }
+  @include respond-to(large-screens) { display: none; }
+}
+
+@mixin show-on-small{
+  @include respond-to(medium-screens) { display: none; }
+  @include respond-to(large-screens) { display: none; }
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 90%;
+  @include column-width;
+}
+
+main{
+  @include respond-to(large-screens) {
+    width: 65%;
+    margin-right: 30px;
+  }
+}
+$racoon-face-url: url(../img/raccoon-face.png);
+.raccoon-face{
+  display: inline-block;
+  height: 57px;
+  width: 57px;
+  color: transparent;
+  background: $primary-color $racoon-face-url no-repeat center center;
+  border-radius: 50%;
+  margin: 0 0.25em;
+  vertical-align: middle;
+  @include respond-to(small-screens) {
+    width: 35px;
+    height: 35px;
+    background-size: 80%;
+  }
+}
+
+@import "article.scss";
+@import "aside.scss";
+@import "header.scss";
+@import "main-nav.scss";

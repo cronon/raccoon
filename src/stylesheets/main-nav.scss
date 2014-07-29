@@ -1,42 +1,108 @@
-@import "main.scss";
 $active-page-url: url(../img/active-page.png);
-$nav-link-hover: #7ca7d9;
+$border-bottom-width: 4px;
+
+@mixin active-element{
+  &::after{
+    position: absolute;
+    content: "";
+    top: calc(100% - 0.125em);
+    left: calc(50% - 11px);
+    background: transparent $active-page-url no-repeat;
+    display: inline-block;
+    width: 22px;
+    height: 14px;
+  }
+}
 
 .main-nav {
   background-color: $primary-color;
   width: 100%;
+  position: relative;
   ul {
     list-style-type: none;
     text-align: center;
     margin: 0 auto;
+    @include column-width;
+  }
+
+  .raccoon-face {
+    @include show-on-large;
+    float: left;
+    margin-top: 0.5em;
+    width: 37px;
+    height: 37px;
+    border: 2px solid white;
+    opacity: 0.5;
+    background-size: 80%;
+  }
+
+  .dropdown-info{
+    @include show-on-medium;
+    color: $primary-color;
+    font-size: 1.125em;
+    padding: 1.125em 1em 1.125em;
+    display: inline-block;
+    background-color: $primary-hover;
+    &:first-child{
+      float: left;
+    }
+    &:nth-child(2) {
+      float: right;
+    }
+
+    div {
+      display: none;
+      position: absolute;
+      top: calc(100% + #{$border-bottom-width} + 1px);
+      left: 0;
+      background: white;
+
+      h1{
+        background-color: #eef4fa;
+        text-transform: uppercase;
+        margin: 0;
+      }
+      p{
+        background-color: white;
+        font-size: 0.75em;
+        color: $text-color;
+        text-transform: none;
+      }
+    }
+
+    &:hover, &:focus{
+      div, div:hover, div:focus {
+        display: block;
+      }
+    }
+
   }
 }
 
-.main-nav-floating {
+.show-on-floating{
+  visibility: hidden;
+}
+.sticky-floating {
   position: fixed;
   top: 0;
   visibility: hidden;
   z-index: 1;
+
+  .show-on-floating{
+    visibility: inherit;
+  }
 }
 
 @media only screen and (min-width: 768px){
   .main-nav {
-    border-bottom: 4px solid #c6defa;
-    margin-bottom: 50px;
+    border-bottom: $border-bottom-width solid #c6defa;
 
     li {
       display: inline-block;
       position: relative;
       text-align: center;
-      &.active::after{
-        position: absolute;
-        content: "";
-        top: calc(100% - 0.125em);
-        left: calc(50% - 11px);
-        background: transparent $active-page-url no-repeat;
-        display: inline-block;
-        width: 22px;
-        height: 14px;
+      &.active {
+        @include active-element;
       }
     }
     a{
@@ -47,7 +113,7 @@ $nav-link-hover: #7ca7d9;
       padding: 1.125em 33px 1.125em 33px;
       display: inline-block;
       &:hover, &:focus {
-        background-color: $nav-link-hover;
+        background-color: $primary-hover;
       }
     }
   }

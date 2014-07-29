@@ -1,18 +1,26 @@
-@import "main.scss";
 $raccoon-face-url: url(../img/raccoon-face.png);
 $author-url: url(../img/author.png);
 $clock-url: url(../img/clock.png);
 
+@mixin desaturate {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+}
+@mixin colorize {
+  filter: none;
+  -webkit-filter: grayscale(0%);
+}
 article {
-  @mixin image-before($width, $height, $url) {
-    &::before{
-      content: "";
-      width: $width;
-      height: $height;
-      background: transparent $url no-repeat;
-      display: inline-block;
-      margin-right: 5px;
-    }
+  margin-top: 2em;
+
+  figure {
+    @include respond-to(small-screens) { height: 10em; }
+    height: 25em;
+    overflow: hidden;
+  }
+  img {
+    width: 100%;
   }
 
   @mixin text-link{
@@ -26,23 +34,80 @@ article {
     }
   }
 
-  figure {
-    height: 25em;
-    overflow: hidden;
-  }
-  img {
-    width: 100%;
-  }
-
   h1 {
     font-family: "Arial Narrow";
     font-size: 1.25em;
     > a {
       @include text-link;
     }
+    @include respond-to(small-screens) {
+      text-align: center;
+      margin: 0;
+      padding: 0.5em 0;
+      background-color: #eee;
+    }
+  }
+
+  .socials {
+    float: right;
+
+    @include respond-to(small-screens) { 
+      float: none; 
+      margin-top: 1em;
+    }
+
+    a {
+      display: inline-block;
+      margin-right: 5px;
+      font-size: 0;
+      height: 25px;
+      @include respond-to(small-screens) {
+        margin: 0 1%;
+      }
+      @include respond-to(large-screens) {
+        @include desaturate;
+        &:hover, &:focus {
+          @include colorize;
+        }
+      }
+    }
+    .fb { 
+      background: url(../img/fb.png); 
+      width: 49px;
+    }
+    .vk { 
+      background: url(../img/vk.png); 
+      width: 49px;
+    }
+    .yandex { 
+      background: url(../img/yandex.png); 
+      width: 41px;
+    }
+    .twitter { 
+      background: url(../img/twitter.png); 
+      width: 49px;
+    }
+    .gp { 
+      background: url(../img/gp.png); 
+      width: 41px;
+    }
+  }
+
+  @mixin image-before($width, $height, $url) {
+    &::before{
+      content: "";
+      width: $width;
+      height: $height;
+      background: transparent $url no-repeat;
+      display: inline-block;
+      margin-right: 5px;
+    }
   }
 
   .article-meta {
+    @include respond-to(small-screens) {
+      text-align: center;
+    }
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     padding: 1em 0;
@@ -52,7 +117,7 @@ article {
       @include image-before(11px, 11px, $clock-url);
     }
 
-    a {
+    a[rel="author"] {
       @include image-before(8px, 15px, $author-url);
       @include text-link;
       span{
@@ -60,7 +125,7 @@ article {
       }
     }
 
-  }//.arcticle-meta
+  }
 
   p {
     font-size: 0.75em;

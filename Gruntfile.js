@@ -4,10 +4,6 @@ module.exports = function(grunt) {
       js: {
         src: 'src/js/*.js',
         dest: 'build/assets/application.js'
-      },
-      css: {
-        src: 'build/assets/stylesheets/*.css',
-        dest: 'build/assets/stylesheets/application.css'
       }
     },
     jade: {
@@ -21,14 +17,8 @@ module.exports = function(grunt) {
     },
     sass: {
       dev:{
-        files: [{
-          expand: true,
-          cwd: 'src/stylesheets',
-          src: ['*.scss'],
-          dest: 'build/assets/stylesheets',
-          ext: '.css'
-        }]
-
+        src:'src/stylesheets/main.scss',
+        dest: 'build/assets/stylesheets/application.css'
       }
     },
     watch: {
@@ -37,13 +27,9 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       jade: {
-        files: ['src/*.jade'],
+        files: ['src/**/*.jade'],
         tasks: ['jade']
       },
-      // 'concat:css':{
-      //   files: ['src/stylesheets/*.css'],
-      //   tasks: ['concat']
-      // },
       'concat:js': {
         files: ['src/js/*.js'],
         tasks: ['concat']

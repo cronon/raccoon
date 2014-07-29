@@ -9,63 +9,55 @@ html(lang="en")
     header
       h1 
         | Racco
-        img(src="assets/img/raccoon-face.png")
+        span.raccoon-face o
         | nblog
-    nav.main-nav
+    nav.main-nav.sticky
+      span.dropdown-info !
+        div: include ./partials/about.jade
+      span.dropdown-info ?
+        div: include ./partials/staff.jade
       ul
+        span.raccoon-face.show-on-floating
         li: a(href="") javascript
         li: a(href="") css
         li: a(href="") latest
         li: a(href="") html
         li.active: a(href="") design
-    aside
-      section
-        h1 about
-        p.
-          Wohin auch das Auge blicket,
-          Moor und Heide nur ringsum.
-          Vogelsang uns nicht erquicket,
-          Eichen stehen kahl und krumm.
-
-          Wir sind die Moorsoldaten,
-          Und ziehen mit dem Spaten ins Moor.
-      section
-        h1 some staff
-        p.
-          Wir sind die Moorsoldaten,
-          Und ziehen mit dem Spaten ins Moor.
-
-          Hier in dieser öden Heide
-          Ist das Lager aufgebaut,
-          Wo wir fern von jeder Freude
-          Hinter Stacheldraht verstaut.
-      nav.tags
-        ul
-          each tag in ["as","asdas","12ee","Waaaaa","cascas"]
-            li: a(href="") tag
-    main
-      each i in [1,2,3,4]
-        article
-          figure
-            img(src="assets/img/1.png")
-          h1: a(href="#{i}") Blogotitle of blogopost about blogoflowers
-          .article-meta
-            time(datetime="2014-07-28 10:00 UTC+0300") 10:00 Jul 28, 2014
-            a(href="aut/#{i}" rel="author") 
-              span by&nbsp;
-              | E. Hyperraccoon
-          p.
-            slow it down, take it in, everybody's in a rush
-            not a feeling in their heart, yeah you know it's just a crush, hush
-            who's laughing, who's crying, who's sorry now?
-            I'll let you drown in your sins, got a feeling this is lust
-            let the salvage begin, but I know you don't trust, sucks
-            who's laughing, who's crying, who's sorry now?
-            on the outside, where my heavy thoughts reside
-            I'm a stranger, to myself, I have no pride
-            walk a humble path, crown me later in the sky
-            I'm a bad guy so you say I have to learn
-            I'm a good guy when you have something to earn
-            keep your double edged sword dipped in paranoid lies
+    .wrapper
+      aside
+        section.about
+          include ./partials/about.jade
+        section.staff
+          include ./partials/staff.jade
+        nav.tags
+          ul
+            each tag in ["as","asdas","12ee","Waaaaa","cascas","fsdfds"]
+              li: a(href="") #{tag}
+                span.corner
+      main
+        each i in [1,2,3,4]
+          article
+            figure
+              img(src="assets/img/1.png")
+            h1: a(href="#{i}") Blogotitle of blogopost about blogoflowers
+            .article-meta
+              time(datetime="2014-07-28 10:00 UTC+0300") 10:00 Jul 28, 2014
+              a(href="aut/#{i}" rel="author") 
+                span by&nbsp;
+                | E. Hyperraccoon
+              include ./partials/socials.jade
+            p.
+              slow it down, take it in, everybody's in a rush
+              not a feeling in their heart, yeah you know it's just a crush, hush
+              who's laughing, who's crying, who's sorry now?
+              I'll let you drown in your sins, got a feeling this is lust
+              let the salvage begin, but I know you don't trust, sucks
+              who's laughing, who's crying, who's sorry now?
+              on the outside, where my heavy thoughts reside
+              I'm a stranger, to myself, I have no pride
+              walk a humble path, crown me later in the sky
+              I'm a bad guy so you say I have to learn
+              I'm a good guy when you have something to earn
+              keep your double edged sword dipped in paranoid lies
   script(type="text/javascript" src="assets/application.js")
 
