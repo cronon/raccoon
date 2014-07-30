@@ -94,11 +94,53 @@ $border-bottom-color: #c6defa;
       display: inline-flex;
       width: 100%;
     }
+
+    @include respond-to(medium-screens) {
+      &.staff {
+        div{
+          width: 193px;
+          height: 140px;
+        }
+        h1{
+          position: relative;
+          transform: rotate(-90deg);
+          left: -1em;
+          top: 1em;
+          width: 139px;
+          height: 76px;
+        }
+        p{
+          position: relative;
+          left: -55px;
+        }
+      }
+
+      &.about {
+        div{
+          width: 38px;
+          height: 110px;
+        }
+        h1{
+          position: relative;
+          transform: rotate(-90deg);
+          left: -22px;
+          top: 48px;
+          width: 85px;
+          height: 38px;
+        }
+        p{
+          position: relative;
+          left: 19px;
+        }
+      }
+    }
+
     h1{
       background-color: #eef4fa;
       text-transform: uppercase;
       margin: 0;
     }
+
     p{
       background-color: white;
       font-size: 0.75em;

@@ -522,6 +522,33 @@ header h1 {
     .main-nav .dropdown-info:hover, .main-nav .dropdown-info:focus {
       display: inline-flex;
       width: 100%; }
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+      .main-nav .dropdown-info.staff div {
+        width: 193px;
+        height: 140px; }
+      .main-nav .dropdown-info.staff h1 {
+        position: relative;
+        transform: rotate(-90deg);
+        left: -1em;
+        top: 1em;
+        width: 139px;
+        height: 76px; }
+      .main-nav .dropdown-info.staff p {
+        position: relative;
+        left: -55px; }
+      .main-nav .dropdown-info.about div {
+        width: 38px;
+        height: 110px; }
+      .main-nav .dropdown-info.about h1 {
+        position: relative;
+        transform: rotate(-90deg);
+        left: -22px;
+        top: 48px;
+        width: 85px;
+        height: 38px; }
+      .main-nav .dropdown-info.about p {
+        position: relative;
+        left: 19px; } }
     .main-nav .dropdown-info h1 {
       background-color: #eef4fa;
       text-transform: uppercase;
@@ -618,8 +645,9 @@ header h1 {
     border-top: none;
     background: #e1eefc;
     flex-direction: column; }
+    .main-nav .dropdown-info div {
+      order: 1; }
     .main-nav .dropdown-info h1 {
-      order: 1;
       text-align: right;
       background: transparent;
       color: white; }
