@@ -50,8 +50,10 @@ article {
 
   .socials {
     float: right;
+    display:inline-block; // strange webkit bug
 
     @include respond-to(small-screens) { 
+      display: block;
       float: none; 
       margin-top: 1em;
     }
@@ -60,7 +62,7 @@ article {
       display: inline-block;
       margin-right: 5px;
       font-size: 0;
-      height: 25px;
+      height: 24px;
       @include respond-to(small-screens) {
         margin: 0 1%;
       }
@@ -73,23 +75,23 @@ article {
     }
     .fb { 
       background: url(../img/fb.png); 
-      width: 49px;
+      width: 48px;
     }
     .vk { 
       background: url(../img/vk.png); 
-      width: 49px;
+      width: 48px;
     }
     .yandex { 
       background: url(../img/yandex.png); 
-      width: 41px;
+      width: 40px;
     }
     .twitter { 
       background: url(../img/twitter.png); 
-      width: 49px;
+      width: 48px;
     }
     .gp { 
       background: url(../img/gp.png); 
-      width: 41px;
+      width: 40px;
     }
   }
 
