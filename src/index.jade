@@ -12,10 +12,9 @@ html(lang="en")
         span.raccoon-face o
         | nblog
     nav.main-nav.sticky
-      span.dropdown-info !
-        div: include ./partials/about.jade
-      span.dropdown-info ?
-        div: include ./partials/staff.jade
+      a.dropdown-anchor.about(href="") !
+      a.dropdown-anchor.staff(href="") ?
+      a.dropdown-anchor.tag(href="") # 
       ul
         span.raccoon-face.show-on-floating
         li: a(href="") javascript
@@ -23,6 +22,8 @@ html(lang="en")
         li: a(href="") latest
         li: a(href="") html
         li.active: a(href="") design
+      div.dropdown-info.about: include ./partials/about.jade
+      div.dropdown-info.staff: include ./partials/staff.jade
     .wrapper
       aside
         section.about.sticky-aside

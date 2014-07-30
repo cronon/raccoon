@@ -1,9 +1,15 @@
 $active-page-url: url(../img/active-page.png);
 $border-bottom-width: 4px;
-
+$border-bottom-color: #c6defa;
+/*
+  active-element: z-index: 2;
+  .dropdown-info: z-index: 1;
+  .sticky-floating: z-index: 1;
+*/
 @mixin active-element{
   &::after{
     position: absolute;
+    z-index: 2;
     content: "";
     top: calc(100% - 0.125em);
     left: calc(50% - 11px);
@@ -36,47 +42,62 @@ $border-bottom-width: 4px;
     background-size: 80%;
   }
 
-  .dropdown-info{
-    @include show-on-medium;
+  .dropdown-anchor{
+    @include respond-to(large-screens) { display: none; }
     color: $primary-color;
-    font-size: 1.125em;
-    padding: 1.125em 1em 1.125em;
-    display: inline-block;
     background-color: $primary-hover;
-    &:first-child{
-      float: left;
-    }
-    &:nth-child(2) {
-      float: right;
-    }
+    position: relative;
+    font-size: 1.125em;
+    text-decoration: none;
+    padding: 1.125em 1em 1.125em;
 
-    div {
-      display: none;
-      position: absolute;
-      top: calc(100% + #{$border-bottom-width} + 1px);
-      left: 0;
-      background: white;
-
-      h1{
-        background-color: #eef4fa;
-        text-transform: uppercase;
-        margin: 0;
-      }
-      p{
-        background-color: white;
-        font-size: 0.75em;
-        color: $text-color;
-        text-transform: none;
-      }
-    }
+    &.about { float: left; }
+    &.staff { float: right; }
+    &.tag { @include show-on-small; }
 
     &:hover, &:focus{
       @include active-element;
-      div, div:hover, div:focus {
-        display: block;
-      }
     }
 
+    &.about:hover, &.about:focus{
+        ~ .about {
+        display: inline-flex;
+      }
+    }
+    &.staff:hover, &.staff:focus{
+        ~ .staff {
+        display: inline-flex;
+      }
+    }
+  }
+  .dropdown-info {
+    display: none;
+    position: relative;
+    background: white;
+    border-top: $border-bottom-width solid $border-bottom-color;
+    &:hover, &:focus {
+      display: block;
+    }
+    h1{
+      background-color: #eef4fa;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    p{
+      background-color: white;
+      font-size: 0.75em;
+      color: $text-color;
+      text-transform: none;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      background: white;
+      height: 18px;
+      position: absolute;
+      bottom: -16px;
+    }
   }
 }
 
@@ -96,7 +117,7 @@ $border-bottom-width: 4px;
 
 @media only screen and (min-width: 768px){
   .main-nav {
-    border-bottom: $border-bottom-width solid #c6defa;
+    border-bottom: $border-bottom-width solid $border-bottom-color;
 
     li {
       display: inline-block;
@@ -105,16 +126,16 @@ $border-bottom-width: 4px;
       &.active {
         @include active-element;
       }
-    }
-    a{
-      color: white;
-      text-transform: uppercase;
-      font-size: 1.125em;
-      text-decoration: none;
-      padding: 1.125em 33px 1.125em 33px;
-      display: inline-block;
-      &:hover, &:focus {
-        background-color: $primary-hover;
+      a {
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.125em;
+        text-decoration: none;
+        padding: 1.125em 33px 1.125em;
+        display: inline-block;
+        &:hover, &:focus {
+          background-color: $primary-hover;
+        }
       }
     }
   }

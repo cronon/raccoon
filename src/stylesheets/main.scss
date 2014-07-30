@@ -21,6 +21,9 @@ $screen-large: 1024px;
   @else if $media == large-screens {
     @media only screen and (min-width: $screen-large) { @content; }
   }
+  @else {
+    @warn "dont know how to hande `#{$media}`.";
+  }
 }
 
 @mixin column-width{
@@ -77,3 +80,4 @@ $racoon-face-url: url(../img/raccoon-face.png);
 @import "aside.scss";
 @import "header.scss";
 @import "main-nav.scss";
+@import "main-nav-small.scss";
