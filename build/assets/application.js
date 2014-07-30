@@ -15,15 +15,20 @@ var updateTableHeaders = function() {
   }
 }
 
-var updateAside = function(){
-  var aside = $('.sticky-aside');
+/*
+  stickyTop -- top relative to the top of the screen in pixels
+ */
+var updateAside = function(stickyTop, startOffset){
+  return function(){
+    var aside = $('.sticky-aside');
+    var scrollTop = $(window).scrollTop();
 
-  var scrollTop = $(window).scrollTop();
-  var margin = parseInt( aside.css('margin-top') );
-  var deltaMargin = scrollTop - margin;
-  if(deltaMargin > startOffset)
-    aside.css('margin-top', margin + deltaMargin );
-
+    if(scrollTop > startOffset - stickyTop){
+      aside.css('margin-top', scrollTop + stickyTop - startOffset);
+    } else {
+      aside.css('margin-top',0);
+    }
+  }
 }
 
 
@@ -39,8 +44,7 @@ window.onload = function() {
   $(window)
     .scroll(updateTableHeaders)
     .trigger("scroll");
-
   $(window)
-    .scroll(updateAside)
+    .scroll(updateAside(87, 196))
     .trigger("scroll"); 
 }
