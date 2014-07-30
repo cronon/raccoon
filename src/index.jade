@@ -14,7 +14,9 @@ html(lang="en")
     nav.main-nav.sticky
       a.dropdown-anchor.about(href="") !
       a.dropdown-anchor.staff(href="") ?
-      a.dropdown-anchor.tag(href="") # 
+      a.dropdown-anchor.tags(href="") # 
+      a.dropdown-anchor.menu(href="") @
+      span.raccoon-logo raccoon
       ul
         span.raccoon-face.show-on-floating
         li: a(href="") javascript
@@ -24,6 +26,14 @@ html(lang="en")
         li.active: a(href="") design
       div.dropdown-info.about: include ./partials/about.jade
       div.dropdown-info.staff: include ./partials/staff.jade
+      div.dropdown-info.tags: include ./partials/tags.jade
+      div.dropdown-info.menu
+        ul
+          li: a(href="") javascript
+          li: a(href="") css
+          li: a(href="") latest
+          li: a(href="") html
+          li: a(href="") design
     .wrapper
       aside
         section.about.sticky-aside

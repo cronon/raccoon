@@ -53,7 +53,8 @@ $border-bottom-color: #c6defa;
 
     &.about { float: left; }
     &.staff { float: right; }
-    &.tag { @include show-on-small; }
+    &.tags { @include show-on-small; }
+    &.menu { @include show-on-small; }
 
     &:hover, &:focus{
       @include active-element;
@@ -62,11 +63,25 @@ $border-bottom-color: #c6defa;
     &.about:hover, &.about:focus{
         ~ .about {
         display: inline-flex;
+        width: 100%;
       }
     }
     &.staff:hover, &.staff:focus{
         ~ .staff {
         display: inline-flex;
+        width: 100%;
+      }
+    }
+    &.tags:hover, &.tags:focus{
+        ~ .tags {
+        display: inline-flex;
+        width: 100%;
+      }
+    }
+    &.menu:hover, &.menu:focus{
+        ~ .menu {
+        display: inline-flex;
+        width: 100%;
       }
     }
   }
@@ -76,7 +91,8 @@ $border-bottom-color: #c6defa;
     background: white;
     border-top: $border-bottom-width solid $border-bottom-color;
     &:hover, &:focus {
-      display: block;
+      display: inline-flex;
+      width: 100%;
     }
     h1{
       background-color: #eef4fa;
