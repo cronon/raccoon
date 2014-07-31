@@ -56,7 +56,7 @@ $border-bottom-color: #c6defa;
     &.tags { @include show-on-small; }
     &.menu { @include show-on-small; }
 
-    &:hover, &:focus{
+    &:hover, &:focus, &:active{
       @include active-element;
     }
 
@@ -90,7 +90,7 @@ $border-bottom-color: #c6defa;
     position: relative;
     background: white;
     border-top: $border-bottom-width solid $border-bottom-color;
-    &:hover, &:focus {
+    &:hover, &:focus, &:active {
       display: inline-flex;
       width: 100%;
     }
@@ -198,7 +198,7 @@ $border-bottom-color: #c6defa;
         padding: 1.125em 33px 1.125em;
         margin-bottom: 1px; // because of rounded pixels
         display: inline-block;
-        &:hover, &:focus {
+        &:hover, &:focus, &:active {
           background-color: $primary-hover;
         }
       }

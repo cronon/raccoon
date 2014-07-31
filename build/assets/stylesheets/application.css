@@ -503,7 +503,7 @@ header h1 {
     @media only screen and (min-width: 1024px) {
       .main-nav .dropdown-anchor.menu {
         display: none; } }
-    .main-nav .dropdown-anchor:hover::after, .main-nav .dropdown-anchor:focus::after {
+    .main-nav .dropdown-anchor:hover::after, .main-nav .dropdown-anchor:focus::after, .main-nav .dropdown-anchor:active::after {
       position: absolute;
       z-index: 2;
       content: "";
@@ -530,7 +530,7 @@ header h1 {
     position: relative;
     background: white;
     border-top: 4px solid #c6defa; }
-    .main-nav .dropdown-info:hover, .main-nav .dropdown-info:focus {
+    .main-nav .dropdown-info:hover, .main-nav .dropdown-info:focus, .main-nav .dropdown-info:active {
       display: inline-flex;
       width: 100%; }
     @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -619,7 +619,7 @@ header h1 {
         padding: 1.125em 33px 1.125em;
         margin-bottom: 1px;
         display: inline-block; }
-        .main-nav li a:hover, .main-nav li a:focus {
+        .main-nav li a:hover, .main-nav li a:focus, .main-nav li a:active {
           background-color: #7ca7d9; } }
 .raccoon-logo {
   display: none; }
