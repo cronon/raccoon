@@ -1,5 +1,10 @@
 $tag-color: #6794b7;
 body:not(:-moz-handler-blocked) .tags ul a::before { top: -1px; }
+/* IE 10+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+   .tags ul a::before { top: -1px; }
+}
+
 .tags ul {
   margin: 0;
   padding: 0;

@@ -93,12 +93,4 @@ window.onload = function() {
   $(window)
     .scroll(updateAside(87, 196))
     .trigger("scroll"); 
-
-  $('div.dropdown-info').each(function(i,div){
-    var div = $(div);
-    var h = div.children('h1');
-        console.log(realWidth(h));
-    h.css('width',h.getHiddenDimensions().height);
-    //div.css('height',h.getHiddenDimensions().width);
-  })
 }

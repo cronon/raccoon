@@ -3,6 +3,9 @@ $text-color: #777;
 $primary-hover: #7ca7d9;
 
 @import "reset.scss";
+main {
+  display: block;
+}
 
 body {
   color: $text-color;
