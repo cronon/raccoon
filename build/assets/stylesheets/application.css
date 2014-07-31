@@ -676,6 +676,12 @@ header h1 {
       height: auto; }
     .main-nav .dropdown-info.tags li {
       display: inline-block; }
+      .main-nav .dropdown-info.tags li a {
+        background-color: #7ca7d9; }
+        .main-nav .dropdown-info.tags li a::before {
+          border-color: transparent transparent transparent #7ca7d9; }
+        .main-nav .dropdown-info.tags li a::after {
+          border-color: #e1eefc; }
     .main-nav .dropdown-info.menu ul {
       background: white;
       padding: 0; }
