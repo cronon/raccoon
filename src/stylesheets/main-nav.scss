@@ -96,18 +96,23 @@ $border-bottom-color: #c6defa;
     }
 
     @include respond-to(medium-screens) {
+      h1{
+        font-size: 1.25em;
+        color: $primary-color;
+      }
       &.staff {
         div{
           width: 193px;
-          height: 140px;
+          height: 172px;
         }
         h1{
           position: relative;
           transform: rotate(-90deg);
-          left: -1em;
-          top: 1em;
-          width: 139px;
-          height: 76px;
+          padding: 0.2em 1em 0em;
+          left: -65px;
+          top: 65px;
+          width: 131px;
+          height: 38px;
         }
         p{
           position: relative;
@@ -118,13 +123,14 @@ $border-bottom-color: #c6defa;
       &.about {
         div{
           width: 38px;
-          height: 110px;
+          height: 125px;
         }
         h1{
           position: relative;
           transform: rotate(-90deg);
-          left: -22px;
-          top: 48px;
+          padding: 0.2em 1em 0em;
+          left: -42px;
+          top: 42px;
           width: 85px;
           height: 38px;
         }
@@ -190,6 +196,7 @@ $border-bottom-color: #c6defa;
         font-size: 1.125em;
         text-decoration: none;
         padding: 1.125em 33px 1.125em;
+        margin-bottom: 1px; // because of rounded pixels
         display: inline-block;
         &:hover, &:focus {
           background-color: $primary-hover;

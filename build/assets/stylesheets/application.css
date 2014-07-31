@@ -328,6 +328,9 @@ article {
   article p {
     font-size: 0.75em; }
 
+body:not(:-moz-handler-blocked) .tags ul a::before {
+  top: -1px; }
+
 .tags ul {
   margin: 0;
   padding: 0; }
@@ -348,6 +351,7 @@ article {
       content: "";
       position: absolute;
       right: -7px;
+      top: 0;
       font-weight: bold;
       border-style: solid;
       border-color: transparent transparent transparent #6794b7;
@@ -523,27 +527,32 @@ header h1 {
       display: inline-flex;
       width: 100%; }
     @media only screen and (min-width: 768px) and (max-width: 1023px) {
+      .main-nav .dropdown-info h1 {
+        font-size: 1.25em;
+        color: #6b9ad0; }
       .main-nav .dropdown-info.staff div {
         width: 193px;
-        height: 140px; }
+        height: 172px; }
       .main-nav .dropdown-info.staff h1 {
         position: relative;
         transform: rotate(-90deg);
-        left: -1em;
-        top: 1em;
-        width: 139px;
-        height: 76px; }
+        padding: 0.2em 1em 0em;
+        left: -65px;
+        top: 65px;
+        width: 131px;
+        height: 38px; }
       .main-nav .dropdown-info.staff p {
         position: relative;
         left: -55px; }
       .main-nav .dropdown-info.about div {
         width: 38px;
-        height: 110px; }
+        height: 125px; }
       .main-nav .dropdown-info.about h1 {
         position: relative;
         transform: rotate(-90deg);
-        left: -22px;
-        top: 48px;
+        padding: 0.2em 1em 0em;
+        left: -42px;
+        top: 42px;
         width: 85px;
         height: 38px; }
       .main-nav .dropdown-info.about p {
@@ -601,6 +610,7 @@ header h1 {
         font-size: 1.125em;
         text-decoration: none;
         padding: 1.125em 33px 1.125em;
+        margin-bottom: 1px;
         display: inline-block; }
         .main-nav li a:hover, .main-nav li a:focus {
           background-color: #7ca7d9; } }

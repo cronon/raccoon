@@ -1,4 +1,5 @@
 $tag-color: #6794b7;
+body:not(:-moz-handler-blocked) .tags ul a::before { top: -1px; }
 .tags ul {
   margin: 0;
   padding: 0;
@@ -25,6 +26,7 @@ $tag-color: #6794b7;
       content: "";
       position: absolute;
       right: -7px;
+      top: 0;
       font-weight: bold;
       border-style: solid;
       border-color: transparent transparent transparent $tag-color;
