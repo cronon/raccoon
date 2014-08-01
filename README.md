@@ -1,4 +1,4 @@
 raccoon
 =======
 
-trying into responsible layout with grunt, sass and jade
+trying into responsive layout with grunt, sass and jade
