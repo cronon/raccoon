@@ -178,9 +178,6 @@ $border-bottom-color: #c6defa;
       display: inline-block;
       position: relative;
       text-align: center;
-      &.active {
-        @include active-element;
-      }
       a {
         color: white;
         text-transform: uppercase;
@@ -191,6 +188,7 @@ $border-bottom-color: #c6defa;
         display: inline-block;
         &:hover, &:focus, &:active {
           background-color: $primary-hover;
+          @include active-element;
         }
       }
     }

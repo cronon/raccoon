@@ -50,6 +50,13 @@ $screen-large: 1024px;
   @include respond-to(large-screens) { display: none; }
 }
 
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
 .wrapper {
   margin: 0 auto;
   width: 90%;

@@ -303,8 +303,16 @@ article {
     @media only screen and (max-width: 768px) {
       article .article-meta {
         text-align: center; } }
+    article .article-meta::after {
+      content: "";
+      display: block;
+      clear: both; }
     article .article-meta time {
+      float: left;
       margin-right: 20px; }
+      @media only screen and (max-width: 768px) {
+        article .article-meta time {
+          float: none; } }
       article .article-meta time::before {
         content: "";
         width: 11px;
@@ -313,8 +321,12 @@ article {
         display: inline-block;
         margin-right: 5px; }
     article .article-meta a[rel="author"] {
+      float: left;
       text-decoration: none;
       color: #777777; }
+      @media only screen and (max-width: 768px) {
+        article .article-meta a[rel="author"] {
+          float: none; } }
       article .article-meta a[rel="author"]::before {
         content: "";
         width: 8px;
@@ -593,16 +605,6 @@ header h1 {
       display: inline-block;
       position: relative;
       text-align: center; }
-      .main-nav li.active::after {
-        position: absolute;
-        z-index: 2;
-        content: "";
-        top: calc(100% - 0.125em);
-        left: calc(50% - 11px);
-        background: transparent url(../img/active-page.png) no-repeat;
-        display: inline-block;
-        width: 22px;
-        height: 14px; }
       .main-nav li a {
         color: white;
         text-transform: uppercase;
@@ -612,7 +614,17 @@ header h1 {
         margin-bottom: 1px;
         display: inline-block; }
         .main-nav li a:hover, .main-nav li a:focus, .main-nav li a:active {
-          background-color: #7ca7d9; } }
+          background-color: #7ca7d9; }
+          .main-nav li a:hover::after, .main-nav li a:focus::after, .main-nav li a:active::after {
+            position: absolute;
+            z-index: 2;
+            content: "";
+            top: calc(100% - 0.125em);
+            left: calc(50% - 11px);
+            background: transparent url(../img/active-page.png) no-repeat;
+            display: inline-block;
+            width: 22px;
+            height: 14px; } }
 .raccoon-logo {
   display: none; }
 

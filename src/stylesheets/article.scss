@@ -110,16 +110,22 @@ article {
     @include respond-to(small-screens) {
       text-align: center;
     }
+    @include clearfix;
+
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     padding: 1em 0;
     font-size: 0.75em;
     time {
+      float: left; 
+      @include respond-to(small-screens) { float: none; }
       margin-right: 20px;
       @include image-before(11px, 11px, $clock-url);
     }
 
     a[rel="author"] {
+      float: left; 
+      @include respond-to(small-screens) { float: none; }
       @include image-before(8px, 15px, $author-url);
       @include text-link;
       span{
