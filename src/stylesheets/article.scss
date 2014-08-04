@@ -110,12 +110,12 @@ article {
     @include respond-to(small-screens) {
       text-align: center;
     }
-    @include clearfix;
-
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     padding: 1em 0;
     font-size: 0.75em;
+
+    overflow: hidden;
     time {
       float: left; 
       @include respond-to(small-screens) { float: none; }
