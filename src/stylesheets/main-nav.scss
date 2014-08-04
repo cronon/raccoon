@@ -153,15 +153,6 @@ $border-bottom-color: #c6defa;
       color: $text-color;
       text-transform: none;
     }
-    &::after {
-      content: "";
-      display: block;
-      width: 100%;
-      background: white;
-      height: 18px;
-      position: absolute;
-      bottom: -16px;
-    }
   }
 }
 
